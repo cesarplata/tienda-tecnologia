@@ -70,9 +70,7 @@ public class VendedorTest {
 		// arrange
 		Producto producto = new ProductoTestDataBuilder().conCodigo(CODIGO_TRES_LETRAS).build();
 		RepositorioGarantiaExtendida repositorioGarantia = mock(RepositorioGarantiaExtendida.class);
-		RepositorioProducto repositorioProducto = mock(RepositorioProducto.class);		
-		
-		repositorioProducto.agregar(producto);
+		RepositorioProducto repositorioProducto = mock(RepositorioProducto.class);
 		
 		Vendedor vendedor = new Vendedor(repositorioProducto, repositorioGarantia);
 
