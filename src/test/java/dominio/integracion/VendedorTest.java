@@ -101,7 +101,7 @@ public class VendedorTest {
 	}	
 	
 	@Test
-	public void productoTreVocalesTest() {
+	public void productoTresVocalesTest() {
 
 		// arrange
 		Producto producto = new ProductoTestDataBuilder().conCodigo(CODIGO_TRES_LETRAS).build();
