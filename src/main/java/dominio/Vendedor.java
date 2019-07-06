@@ -39,25 +39,25 @@ public class Vendedor {
     	
     	if(tieneGarantia(codigo, nombreCliente)){
     		throw new GarantiaExtendidaException(EL_PRODUCTO_TIENE_GARANTIA);
-    	}else{
-    		Producto producto = repositorioProducto.obtenerPorCodigo(codigo);
-    		
-    		GarantiaExtendida garantiaExtendida = null;
-    		Date fechaSolicitud = DateUtil.getCurrentDate();
-    		Set<DayOfWeek> dayOfWeekSetNoCount = new HashSet<>();
-    		if(producto.getPrecio() > LIMITE){
-    			dayOfWeekSetNoCount.add(DayOfWeek.MONDAY);    			
-    			
-    			garantiaExtendida = new GarantiaExtendida(producto,fechaSolicitud,
-    					DateUtil.addDays(fechaSolicitud, DIAS_MAYOR_LIMITE, dayOfWeekSetNoCount, false),
-    					producto.getPrecio()*PORCENTAJE_MAYOR_LIMITE, nombreCliente);
-    		}else{
-    			garantiaExtendida = new GarantiaExtendida(producto,fechaSolicitud,
-    					DateUtil.addDays(fechaSolicitud, DIAS_MENOR_LIMITE, dayOfWeekSetNoCount, true),
-    					producto.getPrecio()*PORCENTAJE_MENOR_LIMITE, nombreCliente);
-    		}    		
-    		repositorioGarantia.agregar(garantiaExtendida);
     	}
+    	
+		Producto producto = repositorioProducto.obtenerPorCodigo(codigo);
+		
+		GarantiaExtendida garantiaExtendida = null;
+		Date fechaSolicitud = DateUtil.getCurrentDate();
+		Set<DayOfWeek> dayOfWeekSetNoCount = new HashSet<>();
+		if(producto.getPrecio() > LIMITE){
+			dayOfWeekSetNoCount.add(DayOfWeek.MONDAY);    			
+			
+			garantiaExtendida = new GarantiaExtendida(producto,fechaSolicitud,
+					DateUtil.addDays(fechaSolicitud, DIAS_MAYOR_LIMITE, dayOfWeekSetNoCount, false),
+					producto.getPrecio()*PORCENTAJE_MAYOR_LIMITE, nombreCliente);
+		}else{
+			garantiaExtendida = new GarantiaExtendida(producto,fechaSolicitud,
+					DateUtil.addDays(fechaSolicitud, DIAS_MENOR_LIMITE, dayOfWeekSetNoCount, true),
+					producto.getPrecio()*PORCENTAJE_MENOR_LIMITE, nombreCliente);
+		}    		
+		repositorioGarantia.agregar(garantiaExtendida);
     }
 
     public boolean tieneGarantia(String codigo, String nombreCliente) {

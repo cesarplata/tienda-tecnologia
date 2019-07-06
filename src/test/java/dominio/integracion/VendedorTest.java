@@ -140,6 +140,7 @@ public class VendedorTest {
 		}
 	}
 	
+	@Test
 	public void productoCostoMenorIgual() {
 
 		// arrange
