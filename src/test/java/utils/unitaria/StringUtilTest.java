@@ -11,9 +11,29 @@ public class StringUtilTest {
 	public static final String CONSONANTES = "BCDFH";
 	
 	@Test
-	public void cantidadVocalesStringTest() {		
-		Assert.assertEquals(5,StringUtil.cantidadVocalesString(VOCALES));
-		Assert.assertEquals(0,StringUtil.cantidadVocalesString(CONSONANTES));
+	public void soloVocalesTest() {		
+		
+		//arrange
+		final int cincoVocales = 5;
+		
+		//act
+		final int cantidadVocalesEnVocales = StringUtil.cantidadVocalesString(VOCALES);
+		
+		//assert
+		Assert.assertEquals(cincoVocales,cantidadVocalesEnVocales);
+	}
+	
+	@Test
+	public void soloConsonantesTest() {		
+		
+		//arrange
+		final int ceroVocales = 0;
+		
+		//act
+		final int cantidadVocalesEnConsonantes = StringUtil.cantidadVocalesString(CONSONANTES);
+		
+		//assert
+		Assert.assertEquals(ceroVocales,cantidadVocalesEnConsonantes);
 	}
 	
 }
