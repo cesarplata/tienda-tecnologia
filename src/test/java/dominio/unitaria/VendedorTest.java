@@ -28,7 +28,7 @@ public class VendedorTest {
 		RepositorioGarantiaExtendida repositorioGarantia = mock(RepositorioGarantiaExtendida.class);
 		RepositorioProducto repositorioProducto = mock(RepositorioProducto.class);
 		
-		when(repositorioGarantia.obtenerProductoConGarantiaPorCodigo(producto.getCodigo())).thenReturn(producto);
+		when(repositorioGarantia.obtenerProductoConGarantiaPorCodigoNombreCliente(producto.getCodigo(), CLIENTE_UNO)).thenReturn(producto);
 		
 		Vendedor vendedor = new Vendedor(repositorioProducto, repositorioGarantia);
 		
@@ -36,7 +36,7 @@ public class VendedorTest {
 		boolean existeProducto = vendedor.tieneGarantia(producto.getCodigo(), CLIENTE_UNO);
 		
 		//assert
-		assertFalse(existeProducto);
+		assertTrue(existeProducto);
 	}
 	
 	@Test
@@ -50,7 +50,7 @@ public class VendedorTest {
 		RepositorioGarantiaExtendida repositorioGarantia = mock(RepositorioGarantiaExtendida.class);
 		RepositorioProducto repositorioProducto = mock(RepositorioProducto.class);
 		
-		when(repositorioGarantia.obtenerProductoConGarantiaPorCodigo(producto.getCodigo())).thenReturn(null);
+		when(repositorioGarantia.obtenerProductoConGarantiaPorCodigoNombreCliente(producto.getCodigo(), CLIENTE_UNO)).thenReturn(null);
 		
 		Vendedor vendedor = new Vendedor(repositorioProducto, repositorioGarantia);
 		
