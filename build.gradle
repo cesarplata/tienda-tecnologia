@@ -16,8 +16,11 @@ repositories {
 dependencies {
 	  compile 'log4j:log4j:1.2.17'
 	  compile 'com.h2database:h2:1.4.194'	
-	  compile 'org.hibernate:hibernate-core:5.2.9.Final'	
-	      
+	  compile 'org.hibernate:hibernate-core:5.2.9.Final'
+	  
+	  // https://mvnrepository.com/artifact/joda-time/joda-time
+	  compile group: 'joda-time', name: 'joda-time', version: '2.9.4'
+	
 	  testCompile 'junit:junit:4.12'
 	  testCompile 'org.mockito:mockito-all:1.10.19'
 }

@@ -18,9 +18,9 @@ public class GarantiaExtendida {
     public GarantiaExtendida(Producto producto, Date fechaSolicitudGarantia, Date fechaFinGarantia,
             double precioGarantia, String nombreCliente) {
 
-        this.producto = producto;
-        this.fechaSolicitudGarantia = fechaSolicitudGarantia;
-        this.fechaFinGarantia = fechaFinGarantia;
+        this.producto = producto;        
+        this.fechaSolicitudGarantia = fechaSolicitudGarantia != null ? (new Date(fechaSolicitudGarantia.getTime())) : null;;
+        this.fechaFinGarantia = fechaFinGarantia != null ? (new Date(fechaFinGarantia.getTime())) : null;
         this.precioGarantia = precioGarantia;
         this.nombreCliente = nombreCliente;
     }
@@ -30,11 +30,11 @@ public class GarantiaExtendida {
     }
 
     public Date getFechaSolicitudGarantia() {
-        return fechaSolicitudGarantia;
+    	return fechaSolicitudGarantia != null ? (new Date(fechaSolicitudGarantia.getTime())) : null;
     }
 
-    public Date getFechaFinGarantia() {
-        return fechaFinGarantia;
+    public Date getFechaFinGarantia() {    	
+    	return fechaFinGarantia != null ? (new Date(fechaFinGarantia.getTime())) : null;
     }
 
     public double getPrecioGarantia() {

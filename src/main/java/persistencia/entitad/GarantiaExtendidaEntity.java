@@ -8,10 +8,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 @Entity(name = "GarantiaExtendida")
-@NamedQuery(name = "GarantiaExtendida.findByCodigo", query = "SELECT garantia from GarantiaExtendida garantia where garantia.producto.codigo = :codigo")
+@NamedQueries({
+		@NamedQuery(
+			name = "GarantiaExtendida.findByCodigo", 
+			query = "SELECT garantia from GarantiaExtendida garantia where garantia.producto.codigo = :codigo"),
+		@NamedQuery(
+			name = "GarantiaExtendida.findByCodigoNombreCliente", 
+			query = "SELECT garantia from GarantiaExtendida garantia where garantia.producto.codigo = :codigo and garantia.nombreCliente = :nombreCliente"),
+		@NamedQuery(
+				name = "GarantiaExtendida.findAll", 
+				query = "SELECT garantia from GarantiaExtendida garantia")
+})
 public class GarantiaExtendidaEntity {
 
 	@Id
@@ -58,12 +69,24 @@ public class GarantiaExtendidaEntity {
 		return fechaFinGarantia;
 	}
 
+	public void setFechaFinGarantia(Date fechaFinGarantia) {
+		this.fechaFinGarantia = fechaFinGarantia;
+	}
+	
 	public String getNombreCliente() {
 		return nombreCliente;
+	}
+	
+	public void setNombreCliente(String nombreCliente) {
+		this.nombreCliente = nombreCliente;
 	}
 
 	public double getPrecio() {
 		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
 	}
 
 }

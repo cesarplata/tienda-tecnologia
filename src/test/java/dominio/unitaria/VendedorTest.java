@@ -14,6 +14,8 @@ import dominio.repositorio.RepositorioGarantiaExtendida;
 import testdatabuilder.ProductoTestDataBuilder;
 
 public class VendedorTest {
+	
+	private static final String CLIENTE_UNO = "Tino Asprilla";
 
 	@Test
 	public void productoYaTieneGarantiaTest() {
@@ -31,10 +33,10 @@ public class VendedorTest {
 		Vendedor vendedor = new Vendedor(repositorioProducto, repositorioGarantia);
 		
 		// act 
-		boolean existeProducto = vendedor.tieneGarantia(producto.getCodigo());
+		boolean existeProducto = vendedor.tieneGarantia(producto.getCodigo(), CLIENTE_UNO);
 		
 		//assert
-		assertTrue(existeProducto);
+		assertFalse(existeProducto);
 	}
 	
 	@Test
@@ -53,7 +55,7 @@ public class VendedorTest {
 		Vendedor vendedor = new Vendedor(repositorioProducto, repositorioGarantia);
 		
 		// act 
-		boolean existeProducto =  vendedor.tieneGarantia(producto.getCodigo());
+		boolean existeProducto =  vendedor.tieneGarantia(producto.getCodigo(), CLIENTE_UNO);
 		
 		//assert
 		assertFalse(existeProducto);
