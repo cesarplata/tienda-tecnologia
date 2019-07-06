@@ -57,14 +57,11 @@ public class Vendedor {
     					producto.getPrecio()*PORCENTAJE_MENOR_LIMITE, nombreCliente);
     		}    		
     		repositorioGarantia.agregar(garantiaExtendida);
-    		producto = repositorioGarantia.obtenerProductoConGarantiaPorCodigoNombreCliente(codigo, nombreCliente);
     	}
     }
 
     public boolean tieneGarantia(String codigo, String nombreCliente) {
     	Producto producto = repositorioGarantia.obtenerProductoConGarantiaPorCodigoNombreCliente(codigo, nombreCliente);
     	return null != producto;
-    }
-    
-
+    }   
 }
